@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: app
+    volumes:
+      - .:/www
+      - ./docker/php/ini/:/usr/local/etc/php/dev.conf.d/
