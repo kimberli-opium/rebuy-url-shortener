@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
 ENV PHP_INI_SCAN_DIR=/usr/local/etc/php/conf.d:/usr/local/etc/php/dev.conf.d
 
@@ -12,3 +12,7 @@ RUN apt-get update && apt-get install git wget unzip -y
 COPY --from=composer:2.5 /usr/bin/composer /bin/composer
 
 WORKDIR /www
+
+EXPOSE 8080
+
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]

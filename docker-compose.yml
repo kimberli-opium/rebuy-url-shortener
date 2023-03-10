@@ -9,3 +9,12 @@ services:
     volumes:
       - .:/www
       - ./docker/php/ini/:/usr/local/etc/php/dev.conf.d/
+
+#  apache:
+#    image: php:8.2-apache
+#    ports:
+#      - "8080:80"
+#    volumes:
+#      - .:/var/www/html/
+#    depends_on:
+#      - php
