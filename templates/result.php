@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hello <?= $url ?></title>
-</head>
 <body>
-<h1>Hello <?= $url ?>!</h1>
+<h3> Hi, here is your short link: <a href="<?= $url ?>" target="_blank"><?= $url ?></a>!</h6>
 </body>
 </html>
