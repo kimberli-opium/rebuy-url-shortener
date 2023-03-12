@@ -18,3 +18,6 @@ endif
 
 cs-fixer:
 	${DOCKER_RUN_ONCE} vendor/bin/php-cs-fixer fix src
+
+run:
+	docker-compose run -p 8080:8080 php
