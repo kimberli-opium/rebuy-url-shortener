@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install git wget unzip -y
 
 COPY --from=composer:2.5 /usr/bin/composer /bin/composer
 
+ENV PHP_CS_FIXER_IGNORE_ENV=1
+
 WORKDIR /www
 
 EXPOSE 8080

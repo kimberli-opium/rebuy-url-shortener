@@ -15,3 +15,6 @@ vendor: ## install composer dependencies for linux
 composer-update: ## update composer dependencies for linux
 	$(DOCKER_RUN_ONCE_LINUX_WITH_SSH_AGENT) composer update
 endif
+
+cs-fixer:
+	${DOCKER_RUN_ONCE} vendor/bin/php-cs-fixer fix src
