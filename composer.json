@@ -16,7 +16,6 @@
   },
   "require": {
     "guzzlehttp/guzzle": "^7.5",
-    "symfony/form": "^6.2",
     "slim/slim": "^4.11",
     "slim/psr7": "^1.6",
     "slim/php-view": "^3.2",
