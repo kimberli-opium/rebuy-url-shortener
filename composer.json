@@ -6,7 +6,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Rebuy\\UrlShortener\\": "tests/"
+      "Rebuy\\UrlShortener\\Tests\\": "tests/"
     }
   },
   "config": {
