@@ -7,6 +7,9 @@ namespace Rebuy\UrlShortener;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Rebuy\UrlShortener\Domain\Url;
+use Rebuy\UrlShortener\Http\ErrorResponse;
+use Rebuy\UrlShortener\Http\Response;
+use Rebuy\UrlShortener\Http\SuccessResponse;
 
 class ApiClient
 {
@@ -21,8 +24,12 @@ class ApiClient
     ) {
     }
 
-    public function query(Url $longUrl, string $endpoint): array
+    public function query(Url $longUrl, string $endpoint): Response
     {
+        if (!$longUrl->isRebuyUrl()) {
+            return new ErrorResponse('Is limited to reBuy product URLs only');
+        }
+
         $headers = ['Content-Type' => 'application/json', 'Accept' => 'application/json'];
         $params = [self::AUTHENTICATION_KEY => $this->apiKey];
         $body = json_encode([
@@ -36,6 +43,6 @@ class ApiClient
             RequestOptions::BODY => $body,
         ]);
 
-        return json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
+        return new SuccessResponse(json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR)['short_url']);
     }
 }
