@@ -8,7 +8,7 @@ class Config
 {
     public function getTlyApiKey(): string
     {
-        return '4Qm1Gv6LImTXcjYr4pHjbTvqwdrZJyZcrsNyXxFEPc7lC4EW4SlnJg5QcUsB';
+        return 'Yvhh4ThJLfm6YDatXP2GZLW8NJRWXoeBDqoDghnJeHj3zuJL8MvFts8flThO';
     }
 
     public function getTlyBaseUrl(): string
